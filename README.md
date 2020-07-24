@@ -1,24 +1,54 @@
-# README
+# Supplier Market
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### [Production App]()
 
-Things you may want to cover:
+### Ruby version
+```
+2.7.1
+```
 
-* Ruby version
+### Rails version
+```
+6.0.3
+```
 
-* System dependencies
+### Configuration
+```shell
+bundle install
+yarn install
+```
 
-* Configuration
+### Database creation
+```shell
+bundle exec rails db:setup
+or
+bundle exec rails db:create
+bundle exec rails db:migrate
+```
 
-* Database creation
+### Initialize postgres
+```shell
+pg_ctl start
+```
 
-* Database initialization
+### How to run the test suite
+```shell
+bundle exec rspec
+```
 
-* How to run the test suite
+### Run the server
+```shell
+bundle exec rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Documentation
 
-* Deployment instructions
+### Author
 
-* ...
+[Renata Marques](https://www.linkedin.com/in/renata-marques-b27877119/)
+[Lenardo Leão](https://www.linkedin.com/in/leonardo-ar%C3%AAa-le%C3%A3o-s%C3%A1-hollanda-de-gusm%C3%A3o-136402171/)
+[Alessandro Barros](https://www.linkedin.com/in/alessandro-barros-4075a112b/)
+
+### License
+
+This project is licensed under the MIT License
