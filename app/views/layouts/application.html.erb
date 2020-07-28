@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SuplierMarket</title>
+    <title>Suplier Market</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= yield %>
+
+    <p class="navbar-text float-right">
+      <% if client_signed_in? %>
+        Logged in as <strong><%= current_client.email %></strong>.
+        <%= link_to 'Edit profile', edit_client_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout",       destroy_client_session_path,   :class => 'navbar-link', method: :delete %>
+      <% elsif provider_signed_in? %>
+        Logged in as <strong><%= current_provider.email %></strong>.
+        <%= link_to 'Edit profile', edit_provider_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout",       destroy_provider_session_path,   :class => 'navbar-link', method: :delete %>
+      <% elsif adm_signed_in? %>
+        Logged in as <strong><%= current_adm.email %></strong>.
+        <%= link_to 'Edit profile', edit_adm_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout",       destroy_adm_session_path,   :class => 'navbar-link', method: :delete %>
+      <% else %>
+        <%= link_to "Sign up Client",   new_client_registration_path,   :class => 'navbar-link'  %> |
+        <%= link_to "Login Client",     new_client_session_path,        :class => 'navbar-link'  %>
+        <%= link_to "Sign up Provider", new_provider_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login Provider",   new_provider_session_path,      :class => 'navbar-link'  %>
+      <% end %>
+    </p>
   </body>
 </html>
