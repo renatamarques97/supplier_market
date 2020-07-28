@@ -1,22 +1,7 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "people/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telephone %><br />
-    <%= f.telephone_field :telephone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cnpj %><br />
-    <%= f.text_field :cnpj %>
-  </div>
+  <%= render "adms/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -41,4 +26,4 @@
   </div>
 <% end %>
 
-<%= render "people/shared/links" %>
+<%= render "adms/shared/links" %>

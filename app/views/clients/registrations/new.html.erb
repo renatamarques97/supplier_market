@@ -1,7 +1,7 @@
-<h2>Sign up</h2>
+<h2>Sign up Client</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "people/shared/error_messages", resource: resource %>
+  <%= render "clients/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -41,4 +41,4 @@
   </div>
 <% end %>
 
-<%= render "people/shared/links" %>
+<%= render "clients/shared/links" %>
