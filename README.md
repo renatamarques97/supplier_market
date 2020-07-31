@@ -1,3 +1,5 @@
+[![Build Status](https://circleci.com/gh/renatamarques97/suplier_market.svg?style=svg)](https://app.circleci.com/pipelines/github/renatamarques97/suplier_market)
+
 # Supplier Market
 
 ### [Production App]()
@@ -43,10 +45,12 @@ bundle exec rails server
 
 ## Documentation
 
-### Author
+### Authors
 
 [Renata Marques](https://www.linkedin.com/in/renata-marques-b27877119/)
+
 [Lenardo Leão](https://www.linkedin.com/in/leonardo-ar%C3%AAa-le%C3%A3o-s%C3%A1-hollanda-de-gusm%C3%A3o-136402171/)
+
 [Alessandro Barros](https://www.linkedin.com/in/alessandro-barros-4075a112b/)
 
 ### License
