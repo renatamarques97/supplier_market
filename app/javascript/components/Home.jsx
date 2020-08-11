@@ -12,10 +12,10 @@ class Home extends Component {
     };
   }
 
-  componentDidMount(){
+  async componentDidMount(){
     let currentComponent = this
 
-    axios.get('/users/check_for_user', {})
+    await axios.get('/check_logged', {})
     .then(function(response){
       if(response.data){
         currentComponent.setState({
@@ -42,7 +42,7 @@ class Home extends Component {
     return (
       <Fragment>
         <p className="navbar-text float-right">
-          <Header />
+          <Header currentUser={this.state.currentUser}/>
         </p>
       </Fragment>
     );
