@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import axios from "axios"
 
 class LoginClient extends Component {
   constructor(props){
@@ -8,15 +9,16 @@ class LoginClient extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    let currentComponent = this
-    axios.post('/clients', {
-      user: {
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    axios.post('/clients/sign_in', {
+      authenticity_token: csrfToken,
+      client: {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
       }
     })
     .then(function(response){
-      currentComponent.props.updateCurrentUser(null);
       return <Redirect to={ "/" } />
     })
     .catch(function(error){

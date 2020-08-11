@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import axios from "axios"
 
 class SignUpProvider extends Component {
   constructor(props){
@@ -8,16 +9,20 @@ class SignUpProvider extends Component {
 
   handleSignup = (e) => {
     e.preventDefault();
-    let currentComponent = this
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     axios.post('/providers', {
-      user: {
+      authenticity_token: csrfToken,
+      provider: {
+        name: document.getElementById("name").value,
+        telephone: document.getElementById("telephone").value,
+        cnpj: document.getElementById("cnpj").value,
         email: document.getElementById("email").value,
         password: document.getElementById("password").value,
         password_confirmation: document.getElementById("password_confirmation").value
       }
     })
     .then(function(response){
-      currentComponent.props.updateCurrentUser(null);
       return <Redirect to={ "/" } />
     })
     .catch(function(error){
@@ -30,6 +35,9 @@ class SignUpProvider extends Component {
       <div>
         <h2>Signup Provider</h2>
         <form>
+          <input id="name" placeholder="name" />
+          <input id="telephone" placeholder="telephone" />
+          <input id="cnpj" placeholder="cnpj" />
           <input id="email" placeholder="email"/>
           <input id="password" placeholder="password"/>
           <input id="password_confirmation" placeholder="retype password"/>

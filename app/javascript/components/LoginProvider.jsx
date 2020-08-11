@@ -1,22 +1,24 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import axios from "axios"
 
 class LoginProvider extends Component {
   constructor(props){
     super(props);
   }
 
-  handleLogin = (e) =>  {
+  handleLogin = (e) => {
     e.preventDefault();
-    let currentComponent = this
-    axios.post('/providers', {
-      user: {
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    axios.post('/providers/sign_in', {
+      authenticity_token: csrfToken,
+      provider: {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
       }
     })
     .then(function(response){
-      currentComponent.props.updateCurrentUser(null);
       return <Redirect to={ "/" } />
     })
     .catch(function(error){
