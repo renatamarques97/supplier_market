@@ -9,9 +9,17 @@ class Clients::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    self.resource = warden.authenticate!(auth_options)
+    set_flash_message(:notice, :signed_in) if is_flashing_format?
+    sign_in(resource_name, resource)
+
+    if resource
+      return render json: { status: "Success" }, status: :ok
+    else
+      return render json: { status: "Error", data: resource.errors }, status: :unprocessable_entity
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

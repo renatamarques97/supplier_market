@@ -11,10 +11,24 @@ class Clients::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   params[:person] = params[:person]&.merge(client: true, provider: false)
-  #   super
-  # end
+  def create
+    build_resource(sign_up_params)
+ 
+    if resource.save
+      if resource.active_for_authentication?
+        set_flash_message :notice, :signed_up if is_navigational_format?
+        sign_in(resource_name, resource)
+        return render json: { status: "Success", data: resource }, status: :ok
+      else
+        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
+        expire_session_data_after_sign_in!
+        return render json: { status: "Success", data: resource }, status: :ok
+      end
+    else
+      clean_up_passwords resource
+      return render json: { status: "Error", data: resource.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -43,8 +57,16 @@ class Clients::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    # devise_parameter_sanitizer.permit(:sign_up, keys: [:client, :provider])
-    devise_parameter_sanitizer.permit(:sign_up) { |c| c.permit(:email, :password, :password_confirmation, :name, :telephone, :cnpj) }
+    devise_parameter_sanitizer.permit(:sign_up) do |c| 
+      c.permit(
+        :email, 
+        :password, 
+        :password_confirmation,
+        :name, 
+        :telephone, 
+        :cnpj
+      )
+      end
   end
 
   # If you have extra params to permit, append them to the sanitizer.

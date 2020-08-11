@@ -13,7 +13,22 @@ class Providers::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     params[:provider] = params[:provider]&.merge(client: false, provider: true)
-    super
+    build_resource(sign_up_params)
+
+    if resource.save
+      if resource.active_for_authentication?
+        set_flash_message :notice, :signed_up if is_navigational_format?
+        sign_in(resource_name, resource)
+        return render json: { status: "Success", data: resource }, status: :ok
+      else
+        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
+        expire_session_data_after_sign_in!
+        return render json: { status: "Success", data: resource }, status: :ok
+      end
+    else
+      clean_up_passwords resource
+      return render json: { status: "Error", data: resource.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   # GET /resource/edit
@@ -44,8 +59,16 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |p|
-      p.permit(:email, :password, :password_confirmation,
-               :name, :telephone, :cnpj, :client, :provider)
+      p.permit(
+        :email, 
+        :password, 
+        :password_confirmation,
+        :name, 
+        :telephone, 
+        :cnpj, 
+        :client, 
+        :provider
+      )
     end
   end
 
