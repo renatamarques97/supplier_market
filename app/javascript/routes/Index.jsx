@@ -10,8 +10,8 @@ export default (
   <Router>
     <Switch>
       <Route path="/"                  exact component={ Home } />
-      <Route path="/clients/login"     exact component={ LoginClient } />
-      <Route path="/providers/login"   exact component={ LoginProvider } />
+      <Route path="/clients/sign_in"   exact component={ LoginClient } />
+      <Route path="/providers/sign_in" exact component={ LoginProvider } />
       <Route path="/clients/sign_up"   exact component={ SignUpClient } />
       <Route path="/providers/sign_up" exact component={ SignUpProvider } />
     </Switch>
