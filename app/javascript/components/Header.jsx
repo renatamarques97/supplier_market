@@ -1,20 +1,27 @@
 import React, { Component, Fragment }  from "react";
 import { Link, Redirect } from 'react-router-dom';
+import axios from "axios"
 
 class Header extends Component {
   constructor(props) {
     super(props);
   }
 
-  handleLogout = (e, url) => {
+   handleLogout = async (e, url) => {
     e.preventDefault();
-    axios.delete(url, {})
-    .then(function(response){
-      return <Redirect to={ "/" } />
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    await axios.delete(url, { 
+      authenticity_token: csrfToken,
+      headers: { 
+        "X-CSRF-Token": csrfToken
+      },
+      params: { 
+        "authenticity_token": csrfToken
+      }
     })
-    .catch(function(error){
-      console.log(error)
-    })
+
+    return <Redirect to={ "/" } />
   }
 
   render() {
@@ -36,7 +43,7 @@ class Header extends Component {
             Edit profile
           </ Link>
 
-          <button onClick={ (e) => this.handleLogout(e, "/" + path + "/logout") }
+          <button onClick={ (e) => this.handleLogout(e, "/" + path + "/sign_out") }
             className="navbar-link"> Logout </button>
         </Fragment>
       );
@@ -49,7 +56,7 @@ class Header extends Component {
             Sign up Client
           </Link>
 
-          <Link to={ "/clients/login" } className="navbar-link">
+          <Link to={ "/clients/sign_in" } className="navbar-link">
             Login Client
           </Link>
 
@@ -57,7 +64,7 @@ class Header extends Component {
             Sign up Provider
           </Link>
 
-          <Link to={ "/providers/login" } className="navbar-link">
+          <Link to={ "/providers/sign_in" } className="navbar-link">
             Login Provider
           </Link>
         </Fragment>
