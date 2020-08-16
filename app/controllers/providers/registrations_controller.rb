@@ -44,8 +44,16 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |p|
-      p.permit(:email, :password, :password_confirmation,
-               :name, :telephone, :cnpj, :client, :provider)
+      p.permit(
+        :email, 
+        :password, 
+        :password_confirmation,
+        :name, 
+        :telephone, 
+        :cnpj, 
+        :client, 
+        :provider
+      )
     end
   end
 
