@@ -40,8 +40,10 @@ bundle exec rspec
 
 ### Run the server
 ```shell
-bundle exec rails server
+bundle exec foreman start -f Procfile.dev
 ```
+
+See `http://localhost:5000/`
 
 ## Documentation
 
