@@ -42,14 +42,15 @@
 
   describe "POST /create" do
     context "with valid parameters" do
-      xit "creates a new Product" do
+      it "creates a new Product" do
         expect {
           # Product.create! valid_attributes
+
           post products_url, params: { product: valid_attributes }
         }.to change(Product, :count).by(1)
       end
 
-      xit "redirects to the created product" do
+      it "redirects to the created product" do
         post products_url, params: { product: valid_attributes }
         expect(response).to redirect_to(product_url(Product.last))
       end

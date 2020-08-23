@@ -21,7 +21,8 @@ class ProductsController < ApplicationController
 
   # POST /products
   def create
-    @product = current_provider.products.build(product_params)
+    @product = Product.new(product_params)
+    @product.assign_attributes(person: current_provider)
 
     respond_to do |format|
       if @product.save
@@ -63,6 +64,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :dimensions, :weight, :quantity, :person_id)
+    params.require(:product).permit(:name, :description, :dimensions, :weight, :quantity)
   end
 end
