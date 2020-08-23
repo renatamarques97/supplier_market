@@ -8,17 +8,20 @@ FactoryBot.define do
 
     trait :client do
       client { true }
+      provider { false }
+      # adm { false }
     end
 
     trait :provider do
       provider { true }
       client { false }
+      # adm { false }
     end
 
-    trait :adm do
-      client { false }
-      adm { true }
-    end
-
+    # trait :adm do
+    #   client { false }
+    #   adm { true }
+    #   provider { false }
+    # end
   end
 end

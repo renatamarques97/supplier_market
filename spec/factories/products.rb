@@ -5,6 +5,7 @@ FactoryBot.define do
     dimensions { "" }
     weight { FFaker::Random.rand(4.0) }
     quantity { FFaker::Random.rand(4) }
-    association :person, :provider
+    # person_id { create(:provider).id }
+    # association :person
   end
 end
