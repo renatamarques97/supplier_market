@@ -10,7 +10,6 @@
       <th>Dimensions</th>
       <th>Weight</th>
       <th>Quantity</th>
-      <th>Provider</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,7 +22,6 @@
         <td><%= product.dimensions %></td>
         <td><%= product.weight %></td>
         <td><%= product.quantity %></td>
-        <td><%= product.provider_id %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>

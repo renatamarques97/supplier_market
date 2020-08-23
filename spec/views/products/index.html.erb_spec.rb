@@ -9,7 +9,7 @@ RSpec.describe "products/index", type: :view do
         dimensions: "",
         weight: 2.5,
         quantity: 3,
-        provider: nil
+        person_id: create(:provider).id
       ),
       Product.create!(
         name: "Name",
@@ -17,7 +17,7 @@ RSpec.describe "products/index", type: :view do
         dimensions: "",
         weight: 2.5,
         quantity: 3,
-        provider: nil
+        person_id: create(:provider).id
       )
     ])
   end
@@ -29,6 +29,5 @@ RSpec.describe "products/index", type: :view do
     assert_select "tr>td", text: "".to_s, count: 2
     assert_select "tr>td", text: 2.5.to_s, count: 2
     assert_select "tr>td", text: 3.to_s, count: 2
-    assert_select "tr>td", text: nil.to_s, count: 2
   end
 end
