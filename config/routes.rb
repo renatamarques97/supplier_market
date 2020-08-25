@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  # devise_for :people, controllers: {
-  #   sessions:      'people/sessions',
-  #   password:      'people/passwords',
-  #   registrations: 'clients/registrations'
-  # }
+  resources :products
 
   devise_for :clients, controllers: {
     sessions:      'clients/sessions',
