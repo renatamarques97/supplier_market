@@ -1,4 +1,5 @@
 [![Build Status](https://circleci.com/gh/renatamarques97/suplier_market.svg?style=svg)](https://app.circleci.com/pipelines/github/renatamarques97/suplier_market)
+[![Code Climate](https://codeclimate.com/github/renatamarques97/suplier_market.svg)](https://codeclimate.com/github/renatamarques97/suplier_market)
 
 # Supplier Market
 
