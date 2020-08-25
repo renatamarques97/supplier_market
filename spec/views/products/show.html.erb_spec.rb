@@ -8,6 +8,7 @@ RSpec.describe "products/show", type: :view do
       dimensions: "",
       weight: 2.5,
       quantity: 3,
+      person_type: "Person",
       person_id: create(:provider).id
     ))
   end

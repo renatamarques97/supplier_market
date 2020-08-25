@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 2020_08_19_143454) do
     t.point "dimensions"
     t.float "weight"
     t.integer "quantity"
+    t.string "person_type", null: false
     t.bigint "person_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["person_id"], name: "index_products_on_person_id"
+    t.index ["person_type", "person_id"], name: "index_products_on_person_type_and_person_id"
   end
 
-  add_foreign_key "products", "people"
 end

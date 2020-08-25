@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.point :dimensions
       t.float :weight
       t.integer :quantity
-      t.references :person, index: true, null: false, foreign_key: true
+      t.references :person, index: true, null: false, polymorphic: true
 
       t.timestamps
     end

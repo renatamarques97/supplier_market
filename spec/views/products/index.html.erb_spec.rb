@@ -9,6 +9,7 @@ RSpec.describe "products/index", type: :view do
         dimensions: "",
         weight: 2.5,
         quantity: 3,
+        person_type: "Person",
         person_id: create(:provider).id
       ),
       Product.create!(
@@ -17,6 +18,7 @@ RSpec.describe "products/index", type: :view do
         dimensions: "",
         weight: 2.5,
         quantity: 3,
+        person_type: "Person",
         person_id: create(:provider).id
       )
     ])
