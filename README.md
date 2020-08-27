@@ -23,8 +23,6 @@ yarn install
 
 ### Database creation
 ```shell
-bundle exec rails db:setup
-or
 bundle exec rails db:create
 bundle exec rails db:migrate
 ```
@@ -37,6 +35,11 @@ pg_ctl start
 ### How to run the test suite
 ```shell
 bundle exec rspec
+```
+
+### How to run rubocop
+```shell
+bundle exec rubocop
 ```
 
 ### Run the server

@@ -16,6 +16,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'foreman'
 
 group :development, :test do
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'pry'

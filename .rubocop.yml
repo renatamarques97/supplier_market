@@ -1,0 +1,71 @@
+AllCops:
+  Exclude:
+    - './spec/*_helper.rb'
+    - './config/**/*'
+    - './bin/**/*'
+    - './db/**/*'
+    - 'Gemfile'
+    - 'Rakefile'
+    - './node_modules/**/*'
+    - 'config.ru'
+  NewCops: enable
+
+Layout/LineLength:
+  Exclude:
+    - './spec/routing/admin/offers_routing_spec.rb'
+    - './spec/routing/offers_routing_spec.rb'
+    - './app/jobs/application_job.rb'
+    - './spec/requests/admin/offers_request_spec.rb'
+    - './spec/requests/offers_spec.rb'
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+
+# Use `foo { bar }` not `foo {bar}`.
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+
+# Use `{ a: 1 }` not `{a:1}`.
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+# Blank lines should not have any spaces.
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+# Method definitions after `private` or `protected` isolated calls need one
+# extra level of indentation.
+Layout/IndentationConsistency:
+  Enabled: true
+  EnforcedStyle: indented_internal_methods
+
+Style/AndOr:
+  Enabled: true
+
+Style/HashSyntax:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+# Check quotes usage according to lint rule below.
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/GuardClause:
+  Exclude:
+    - ''
+
+# Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+Lint/RequireParentheses:
+  Enabled: true
+
+Metrics/BlockLength:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
