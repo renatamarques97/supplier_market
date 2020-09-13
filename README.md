@@ -23,8 +23,6 @@ yarn install
 
 ### Database creation
 ```shell
-bundle exec rails db:setup
-or
 bundle exec rails db:create
 bundle exec rails db:migrate
 ```
@@ -41,7 +39,8 @@ bundle exec rspec
 
 ### Run the server
 ```shell
-bundle exec foreman start -f Procfile.dev
+gem install foreman
+foreman start -f Procfile.dev
 ```
 
 See `http://localhost:5000/`
@@ -52,10 +51,10 @@ See `http://localhost:5000/`
 
 [Renata Marques](https://www.linkedin.com/in/renata-marques-b27877119/)
 
-[Lenardo Leão](https://www.linkedin.com/in/leonardo-ar%C3%AAa-le%C3%A3o-s%C3%A1-hollanda-de-gusm%C3%A3o-136402171/)
+[Leonardo Leão](https://www.linkedin.com/in/leonardo-ar%C3%AAa-le%C3%A3o-s%C3%A1-hollanda-de-gusm%C3%A3o-136402171/)
 
 [Alessandro Barros](https://www.linkedin.com/in/alessandro-barros-4075a112b/)
 
 ### License
 
-This project is licensed under the MIT License
+This project is licensed under Apache license
