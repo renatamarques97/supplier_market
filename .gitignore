@@ -35,6 +35,11 @@
 yarn-debug.log*
 .yarn-integrity
 
+logfile
+
+# Ignore asdf file
+.tool-versions
+
 # Ignore Vim temporary files
 *.swp
 *.swo
