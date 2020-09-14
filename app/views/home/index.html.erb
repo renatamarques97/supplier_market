@@ -7,6 +7,7 @@
         <tr class="products">
           <td> <%= product.name %> </td>
           <td> <%= image_tag "box.svg", width: "180px" %> </td>
+          <td> <%= button_to "Add to Cart", add_to_cart_path(product_id: product.id), class: "btn btn-primary", method: :post %></td>
         </tr>
       <% end %>
     </tbody>
