@@ -1,0 +1,14 @@
+<h1>Home</h1>
+
+<% if adm_signed_in? || client_signed_in? || provider_signed_in? %>
+  <table>
+    <tbody>
+      <% @products.each  do |product| %>
+        <tr class="products">
+          <td> <%= product.name %> </td>
+          <td> <%= image_tag "box.svg", width: "180px" %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
