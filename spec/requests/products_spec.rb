@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "/products", type: :request do
   let!(:provider) { create(:provider) }
-  let(:valid_attributes) { attributes_for(:product, person_id: provider.id) }
+
+  let(:valid_attributes)   { attributes_for(:product, person_type: "Provider", person_id: provider.id) }
   let(:invalid_attributes) { attributes_for(:product, person_id: nil) }
 
   describe "Valid attributes" do

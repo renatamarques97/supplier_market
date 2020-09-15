@@ -5,6 +5,6 @@ class Product < ApplicationRecord
   validates :person_type, presence: true
 
   def dimensions
-    "#{height} cm x#{width} cm x#{length} cm (CxLxA)"
+    "#{height} cm x #{width} cm x #{length} cm (CxLxA)"
   end
 end
