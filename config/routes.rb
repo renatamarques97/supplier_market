@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   resources :products
   resources :purchases
 
+  get  '/shopping_cart' => 'shopping_cart#index'
   post '/add_to_cart/:product_id' => 'shopping_cart#add_to_cart', as: 'add_to_cart'
+  post '/remove_one_from_cart/:product_id' => 'shopping_cart#remove_one_from_cart', as: 'remove_one_from_cart'
+  post '/remove_from_cart/:product_id' => 'shopping_cart#remove_from_cart', as: 'remove_from_cart'
 
   root to: "home#index"
 end
