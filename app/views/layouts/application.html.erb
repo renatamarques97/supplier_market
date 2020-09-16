@@ -13,7 +13,7 @@
   <body>
     <%= yield %>
 
-    <p class="navbar-text float-right">
+    <p class="navbar-text float-right menu">
       <% if client_signed_in? %>
         Logged in as <strong><%= current_client.email %></strong>.
         <%= link_to 'Edit profile', edit_client_registration_path, :class => 'navbar-link' %> |
