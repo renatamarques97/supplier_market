@@ -1,46 +1,32 @@
 class ShoppingCartController < ApplicationController
+  before_action :set_product_id, only: [:add_to_cart, :remove_one_from_cart, :remove_from_cart]
+  before_action :check_shopping_cart
+
   def index
-    @shopping_cart = []
-    return unless session[:shopping_cart]
-
-    @shopping_cart = session[:shopping_cart].inject([]) do |array, shopping_cart|
-      product = Product.find_by_id(shopping_cart["product_id"])
-
-      array << {
-        product: product, 
-        quantity: shopping_cart["quantity"]
-      }
-      array
-    end
+    @shopping_cart = ShoppingCart.cart_formated(session[:shopping_cart])
   end
 
   def add_to_cart
-    product_id = params[:product_id]
-    session[:shopping_cart] = [] unless session[:shopping_cart]
-
-    product_founded = session[:shopping_cart].find{ |item| item["product_id"] == product_id ? item["quantity"]+=1 : nil }
-
-    session[:shopping_cart] << {
-      product_id: product_id,
-      quantity: 1
-    } unless product_founded
+    session[:shopping_cart] = ShoppingCart.add_to_cart(session[:shopping_cart], @product_id)
 
     flash[:success] = "Product added to cart!"
   end
 
   def remove_one_from_cart
-    product_id = params[:product_id]
-    session[:shopping_cart] = [] unless session[:shopping_cart]
-
-    product_founded = session[:shopping_cart].find{ |item| item["product_id"] == product_id ? item["quantity"]-=1 : nil }
-    session[:shopping_cart].reject! { |item| item["quantity"].zero? }
+    session[:shopping_cart] = ShoppingCart.remove_one_from_cart(session[:shopping_cart], @product_id)
   end
 
   def remove_from_cart
-    product_id = params[:product_id]
-    session[:shopping_cart] = [] unless session[:shopping_cart]
-
-    session[:shopping_cart].reject! { |item| item["product_id"] == product_id }
+    session[:shopping_cart] = ShoppingCart.remove_from_cart(session[:shopping_cart], @product_id)
   end
 
+  private
+
+  def set_product_id
+    @product_id = params[:product_id]
+  end
+
+  def check_shopping_cart
+    session[:shopping_cart] = [] unless session[:shopping_cart]
+  end
 end

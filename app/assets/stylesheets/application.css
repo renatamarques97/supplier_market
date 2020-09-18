@@ -16,12 +16,13 @@
 
 .products {
   display: inline-grid; 
-  width: 230px;
   border-style: solid;
   border-color: #9eecff;
-  height: 250px;
+  width: 230px;
+  height: auto;
   margin: 5px;
   background-color: #e6faff;
+  text-align: center;
 }
 
 .shopping-cart {
