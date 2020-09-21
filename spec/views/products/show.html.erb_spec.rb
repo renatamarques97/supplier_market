@@ -10,6 +10,7 @@ RSpec.describe "products/show", type: :view do
       length: 4.0,
       weight: 2.5,
       quantity: 3,
+      price: 2.7,
       person_type: "Person",
       person_id: create(:provider).id
     ))
@@ -24,5 +25,6 @@ RSpec.describe "products/show", type: :view do
     expect(rendered).to match(/4.0/)
     expect(rendered).to match(/2.5/)
     expect(rendered).to match(/3/)
+    expect(rendered).to match(/2.7/)
   end
 end
