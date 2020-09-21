@@ -5,23 +5,14 @@ FactoryBot.define do
     cnpj      { FFaker::IdentificationBR.cnpj }
     email     { FFaker::Internet.email }
     password  { FFaker::Internet.password }
+  end
 
-    trait :client do
-      client   { true }
-      provider { false }
-      # adm { false }
-    end
+  factory :client, class: Client, parent: :person do
+    client   { true }
+  end
 
-    trait :provider do
-      client   { false }
-      provider { true }
-      # adm { false }
-    end
-
-    # trait :adm do
-    #   client { false }
-    #   adm { true }
-    #   provider { false }
-    # end
+  factory :provider, class: Provider, parent: :person do
+    client   { false }
+    provider { true  }
   end
 end

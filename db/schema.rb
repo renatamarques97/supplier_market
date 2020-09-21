@@ -34,11 +34,14 @@ ActiveRecord::Schema.define(version: 2020_09_06_212242) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.point "dimensions"
+    t.string "name", null: false
+    t.text "description", default: "", null: false
+    t.float "height"
+    t.float "width"
+    t.float "length"
     t.float "weight"
-    t.integer "quantity"
+    t.float "price", null: false
+    t.integer "quantity", default: 0, null: false
     t.string "person_type", null: false
     t.bigint "person_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_212242) do
   end
 
   create_table "purchase_products", force: :cascade do |t|
-    t.integer "order_quantity"
+    t.integer "order_quantity", null: false
     t.bigint "purchase_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -57,10 +60,10 @@ ActiveRecord::Schema.define(version: 2020_09_06_212242) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.float "price"
-    t.float "discount"
-    t.float "final_price"
-    t.float "shipping"
+    t.float "price", null: false
+    t.float "discount", null: false
+    t.float "final_price", null: false
+    t.float "shipping", null: false
     t.string "person_type", null: false
     t.bigint "person_id", null: false
     t.datetime "created_at", precision: 6, null: false
