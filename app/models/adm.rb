@@ -1,7 +1,7 @@
-require "singleton"
+#require "singleton"
 
 class Adm < Person
-  include Singleton
+  #include Singleton
 
   has_many :products, as: :person, dependent: :destroy
 end
