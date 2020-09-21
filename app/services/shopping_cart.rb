@@ -13,13 +13,14 @@ class ShoppingCart
 
     def remove_one_from_cart(cart, product_id)
       cart = convert_to_symbol(cart)
+
       cart.find    { |item| item[:product_id] == product_id ? item[:quantity]-=1 : nil }
-      cart.reject! { |item| item[:quantity].zero? }
+      cart.reject { |item| item[:quantity].zero? }
     end
 
     def remove_all_from_cart(cart, product_id)
       cart = convert_to_symbol(cart)
-      cart.reject! { |item| item[:product_id] == product_id }
+      cart.reject { |item| item[:product_id] == product_id }
     end
 
     def cart_formatted(cart)
