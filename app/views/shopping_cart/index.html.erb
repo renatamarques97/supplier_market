@@ -6,8 +6,8 @@
     <% @shopping_cart.each  do |cart_item| %>
       <div class="item">
         <div class="buttons">
-          <%= button_to "X", remove_all_from_cart_path(product_id: cart_item[:product].id), class: "btn btn-danger" %>
-          <%= button_to "❤", add_to_cart_path(product_id: "1"), class: "btn btn-primary" %>
+          <%= button_to "X", remove_all_from_cart_path(product_id: cart_item[:product].id), class: "btn btn-danger", remote: true %>
+          <%= button_to "❤", "/", class: "btn btn-primary", remote: true %>
         </div>
 
         <div class="image">
@@ -20,9 +20,9 @@
         </div>
 
         <div class="quantity">
-          <%= button_to "+", add_to_cart_path(product_id: cart_item[:product].id), class: "btn btn-primary" %>
+          <%= button_to "+", add_to_cart_path(product_id: cart_item[:product].id), class: "btn btn-primary", remote: true %>
           <input type="text" value=<%= cart_item[:quantity] %>>
-          <%= button_to "-", remove_one_from_cart_path(product_id: cart_item[:product].id), class: "btn btn-primary" %>
+          <%= button_to "-", remove_one_from_cart_path(product_id: cart_item[:product].id), class: "btn btn-primary", remote: true %>
         </div>
 
         <div class="total-price">R$<%= cart_item[:product].price.round(2) %></div>
