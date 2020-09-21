@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "/products", type: :request do
+RSpec.describe ProductsController, type: :request do
   let!(:provider) { create(:provider) }
 
   let(:valid_attributes)   { attributes_for(:product, person_type: "Provider", person_id: provider.id) }
@@ -104,8 +104,17 @@ RSpec.describe "/products", type: :request do
     describe "PATCH /update" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         product = Product.create! valid_attributes
+        
         patch product_url(product), params: { product: invalid_attributes }
         expect(response).to redirect_to(product_url(product))
+      end
+
+      it "does not update Product" do
+        product = Product.create! valid_attributes
+        invalid_attributes = attributes_for(:product, price: nil)
+
+        patch product_url(product), params: { product: invalid_attributes }
+        expect(response).to have_http_status(200)
       end
     end
   end
