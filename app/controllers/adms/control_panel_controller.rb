@@ -18,7 +18,7 @@ class Adms::ControlPanelController < ApplicationController
   private
 
   def set_provider
-    @_provider = Person.find_by_id(params[:product_id])
+    @_provider = Person.find_by_id(params[:provider_id])
   end
 
 end
