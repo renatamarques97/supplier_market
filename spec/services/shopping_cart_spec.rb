@@ -28,7 +28,7 @@ RSpec.describe ShoppingCart do
       }]
     end
 
-    it "added to cart" do
+    it "adds to cart" do
       expect(shopping_cart_added_to_cart).to eq(result_spec_added_to_cart)
     end
 
@@ -76,7 +76,7 @@ RSpec.describe ShoppingCart do
       ]
     end
 
-    it "removed one from cart" do
+    it "has been removed from cart" do
       expect(shopping_cart_remove_one_from_cart).to eq(result_spec_remove_one_from_cart)
     end
   end
@@ -116,7 +116,7 @@ RSpec.describe ShoppingCart do
       ]
     end
 
-    it "removed all from cart" do
+    it "removes all from cart" do
       expect(shopping_cart_remove_all_from_cart).to eq(result_spec_remove_all_from_cart)
     end
   end
