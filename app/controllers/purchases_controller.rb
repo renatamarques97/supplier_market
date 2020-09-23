@@ -8,7 +8,7 @@ class PurchasesController < ApplicationController
   
   # GET /purchases/id
   def show
-    end
+  end
   
   # GET /purchases/new
   def new
@@ -32,7 +32,7 @@ class PurchasesController < ApplicationController
   
     # DELETE /purchases/id
   def destroy
-    @purchase.destroy
+    @_purchase.destroy
     respond_to do |format|
       format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
       format.json { head :no_content }
@@ -42,7 +42,7 @@ class PurchasesController < ApplicationController
   private
 
   def set_purchase
-    @purchase = Purchase.find(params[:id])
+    @_purchase = Purchase.find(params[:id])
   end
   
   def purchase_params
