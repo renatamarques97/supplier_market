@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align: center">Admin Panel</h1>
+<div class="container">
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th Align="center" >Name</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.name %></td>
+        <td class="col-md-2 text-center"> 
+          <a><%= button_to "✓", accept_provider_path(provider_id: person.id), class: "btn btn-success", data: {confirm: "Tem certeza que deseja aceitar o provider?"} %></a>
+          <a><%= button_to "X", reject_provider_path(provider_id: person.id), class: "btn btn-danger",  data: {confirm: "Tem certeza que deseja recusar o provider?"} %></a>
+        </td>      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+</div>
+
