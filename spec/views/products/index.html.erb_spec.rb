@@ -1,24 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe "products/index", type: :view do
-  before(:each) do
-    assign(:products, [
+  before do
+    @products = assign(:products, [
       Product.create!(
         name: "Name",
         description: "MyText",
-        dimensions: "",
+        height: 2.0,
+        width: 3.0,
+        length: 4.0,
         weight: 2.5,
         quantity: 3,
-        person_type: "Person",
-        person_id: create(:provider).id
-      ),
-      Product.create!(
-        name: "Name",
-        description: "MyText",
-        dimensions: "",
-        weight: 2.5,
-        quantity: 3,
-        person_type: "Person",
+        price: 3.78,
+        person_type: "Provider",
         person_id: create(:provider).id
       )
     ])
@@ -26,10 +20,11 @@ RSpec.describe "products/index", type: :view do
 
   it "renders a list of products" do
     render
-    assert_select "tr>td", text: "Name".to_s, count: 2
-    assert_select "tr>td", text: "MyText".to_s, count: 2
-    assert_select "tr>td", text: "".to_s, count: 2
-    assert_select "tr>td", text: 2.5.to_s, count: 2
-    assert_select "tr>td", text: 3.to_s, count: 2
+    assert_select "tr>td", text: "Name".to_s, count: 1
+    assert_select "tr>td", text: "MyText".to_s, count: 1
+    assert_select "tr>td", text: @products.first.dimensions, count: 1
+    assert_select "tr>td", text: 2.5.to_s, count: 1
+    assert_select "tr>td", text: 3.to_s, count: 1
+    assert_select "tr>td", text: 3.78.to_s, count: 1
   end
 end

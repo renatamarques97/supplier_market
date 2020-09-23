@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_143454) do
+ActiveRecord::Schema.define(version: 2020_09_06_212242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,11 +34,14 @@ ActiveRecord::Schema.define(version: 2020_08_19_143454) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.point "dimensions"
+    t.string "name", null: false
+    t.text "description", default: "", null: false
+    t.float "height"
+    t.float "width"
+    t.float "length"
     t.float "weight"
-    t.integer "quantity"
+    t.float "price", null: false
+    t.integer "quantity", default: 0, null: false
     t.string "person_type", null: false
     t.bigint "person_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -46,4 +49,28 @@ ActiveRecord::Schema.define(version: 2020_08_19_143454) do
     t.index ["person_type", "person_id"], name: "index_products_on_person_type_and_person_id"
   end
 
+  create_table "purchase_products", force: :cascade do |t|
+    t.integer "order_quantity", null: false
+    t.bigint "purchase_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_purchase_products_on_product_id"
+    t.index ["purchase_id"], name: "index_purchase_products_on_purchase_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.float "price", null: false
+    t.float "discount", null: false
+    t.float "final_price", null: false
+    t.float "shipping", null: false
+    t.string "person_type", null: false
+    t.bigint "person_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["person_type", "person_id"], name: "index_purchases_on_person_type_and_person_id"
+  end
+
+  add_foreign_key "purchase_products", "products"
+  add_foreign_key "purchase_products", "purchases"
 end
