@@ -11,9 +11,7 @@
   </head>
 
   <body>
-    <%= yield %>
-
-    <p class="navbar-text float-right menu">
+    <p class="navbar-text float-right">
       <% if client_signed_in? %>
         Logged in as <strong><%= current_client.email %></strong>.
         <%= link_to 'Edit profile', edit_client_registration_path, :class => 'navbar-link' %> |
@@ -31,7 +29,9 @@
         <%= link_to "Login Client",     new_client_session_path,        :class => 'navbar-link'  %>
         <%= link_to "Sign up Provider", new_provider_registration_path, :class => 'navbar-link'  %> |
         <%= link_to "Login Provider",   new_provider_session_path,      :class => 'navbar-link'  %>
+        <%= link_to "Login Admin",        new_adm_session_path,           :class => 'navbar-link'  %>
       <% end %>
+      <%= yield %>
     </p>
   </body>
 </html>

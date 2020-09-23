@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class Adm::SessionsController < Devise::SessionsController
+class Adms::SessionsController < Devise::SessionsController
 end

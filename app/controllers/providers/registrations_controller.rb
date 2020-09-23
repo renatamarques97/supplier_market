@@ -5,7 +5,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    params[:provider] = params[:provider]&.merge(client: false, provider: true)
+    params[:provider] = params[:provider]&.merge(client: false, provider: false)
     super
   end
 
