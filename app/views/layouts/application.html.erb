@@ -41,8 +41,18 @@
         <%= link_to "Sign up Client",   new_client_registration_path,   :class => 'navbar-link'  %> |
         <%= link_to "Login Client",     new_client_session_path,        :class => 'navbar-link'  %> |
         <%= link_to "Sign up Provider", new_provider_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login Provider",   new_provider_session_path,      :class => 'navbar-link'  %>
-        <%= link_to "Login Admin",        new_adm_session_path,           :class => 'navbar-link'  %>
+        <%= link_to "Login Provider",   new_provider_session_path,      :class => 'navbar-link'  %> |
+        <%= link_to "Login Admin",      new_adm_session_path,           :class => 'navbar-link'  %>
+      <% end %>
+
+      <% if I18n.locale == :en %>
+        <%= link_to root_path(locale: :pt), class: "locale-button" do %>
+          <%= image_tag "gb-flag.svg" %>
+        <% end %>
+      <% else %>
+        <%= link_to root_path(locale: :en), class: "locale-button" do %>
+          <%= image_tag "br-flag.svg" %>
+        <% end %>
       <% end %>
     </p>
 
