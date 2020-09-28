@@ -44,7 +44,6 @@
         <%= link_to "Login Provider",   new_provider_session_path,      :class => 'navbar-link'  %>
         <%= link_to "Login Admin",        new_adm_session_path,           :class => 'navbar-link'  %>
       <% end %>
-      <%= yield %>
     </p>
 
     <% flash.each do |type, msg| %>
