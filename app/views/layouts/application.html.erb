@@ -46,11 +46,11 @@
       <% end %>
 
       <% if I18n.locale == :en %>
-        <%= link_to root_path(locale: :pt), class: "locale-button" do %>
+        <%= link_to set_locale_path(locale: :pt), class: "locale-button" do %>
           <%= image_tag "gb-flag.svg" %>
         <% end %>
       <% else %>
-        <%= link_to root_path(locale: :en), class: "locale-button" do %>
+        <%= link_to set_locale_path(locale: :en), class: "locale-button" do %>
           <%= image_tag "br-flag.svg" %>
         <% end %>
       <% end %>
