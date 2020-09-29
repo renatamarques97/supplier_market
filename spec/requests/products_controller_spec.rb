@@ -49,7 +49,7 @@ RSpec.describe ProductsController, type: :request do
 
       it "redirects to the created product" do
         post products_url, params: { product: valid_attributes }
-        expect(response).to redirect_to(product_url(Product.last))
+        expect(response).to redirect_to(product_url(Product.last, locale: I18n.default_locale))
       end
     end
 
@@ -82,7 +82,7 @@ RSpec.describe ProductsController, type: :request do
       it "redirects to the products list" do
         product = Product.create! valid_attributes
         delete product_url(id: product)
-        expect(response).to redirect_to(products_url)
+        expect(response).to redirect_to(products_url(locale: I18n.default_locale))
       end
     end
   end
