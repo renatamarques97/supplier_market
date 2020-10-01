@@ -1,13 +1,13 @@
   <div class="shopping-cart">
     <div class="title">
-      Shopping Cart
+      <%= t(".title") %>
     </div>
   
     <% @shopping_cart.each  do |cart_item| %>
       <div class="item">
         <div class="buttons">
           <%= button_to "X", remove_all_from_cart_path(product_id: cart_item[:product].id), class: "btn btn-danger", remote: true %>
-          <%= button_to "❤", "/", class: "btn btn-primary", remote: true %>
+          <%= button_to "❤", root_path, class: "btn btn-primary", remote: true %>
         </div>
 
         <div class="image">
