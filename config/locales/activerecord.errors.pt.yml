@@ -1,0 +1,7 @@
+# encoding: UTF-8
+
+pt:
+  activerecord:
+    errors:
+      messages:
+        blank: "não pode ser branco"

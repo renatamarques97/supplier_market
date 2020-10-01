@@ -1,0 +1,45 @@
+# encoding: UTF-8
+
+pt:
+  activerecord:
+    attributes:
+      person:
+        email:     "Email"
+        name:      "Nome"
+        telephone: "Telefone"
+        cnpj:      "CNPJ"
+        password:  "Senha"
+        password_confirmation:  "Confirmação de Senha"
+        current_password:       "Senha Atual"
+        remember_me:            "Lembrar-me"
+        remember_created_at:    "Lembrar Criado Em"
+        encrypted_password:     "Senha Encriptada"
+        reset_password_token:   "Token Redefinir Senha"
+        reset_password_sent_at: "Senha Redefinida Em"
+        created_at:  "Criado em"
+        updated_at:  "Atualizado em"
+        admin:       "Admin"
+        client:      "Cliente"
+        provider:    "Provedor"
+      product:
+        name:        "Nome"
+        description: "Descrição"
+        height:      "Altura"
+        width:       "Largura"
+        length:      "Comprimento"
+        weight:      "Peso"
+        price:       "Preço"
+        quantity:    "Quantidade"
+        person_type: "Tipo Pessoa"
+        person_id:   "Id Pessoa"
+        created_at:  "Criado em"
+        updated_at:  "Atualizado em"
+      purchase:
+        price:       "Preço"
+        discount:    "Desconto"
+        final_price: "Preço Final"
+        shipping:    "Frete"
+        person_type: "Tipo Pessoa"
+        person_id:   "Id Pessoa"
+        created_at:  "Criado em"
+        updated_at:  "Atualizado em"
