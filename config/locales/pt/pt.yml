@@ -124,4 +124,3 @@ pt:
           without_instructions:
             confirmation?: "Não recebeu instruções de confirmação?"
             unlock?: "Não recebeu instruções de desbloqueio?"
-  
