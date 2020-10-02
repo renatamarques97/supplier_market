@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Product.human_attribute_name :name %>:</strong>
   <%= @product.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= Product.human_attribute_name :description %>:</strong>
   <%= @product.description %>
 </p>
 
 <p>
-  <strong>Dimensions:</strong>
+  <strong><%= t('.dimensions') %>:</strong>
   <%= @product.dimensions %>
 </p>
 
 <p>
-  <strong>Weight:</strong>
-  <%= @product.weight %>
-</p>
-
-<p>
-  <strong>Price:</strong>
+  <strong><%= Product.human_attribute_name :price %>:</strong>
   <%= @product.price %>
 </p>
 
 <p>
-  <strong>Quantity:</strong>
+  <strong><%= Product.human_attribute_name :weight %>:</strong>
+  <%= @product.weight %>
+</p>
+
+<p>
+  <strong><%= Product.human_attribute_name :quantity %>:</strong>
   <%= @product.quantity %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to t('.edit'), edit_product_path(@product), class: 'btn btn-warning' %>
+<%= link_to t('.back'), products_path, class: 'btn btn-info' %>

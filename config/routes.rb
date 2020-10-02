@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :products
   resources :purchases
 
+  get '/set_locale/:locale', to: 'application#set_locale', as: 'set_locale'
+
   get  '/shopping_cart', to: 'shopping_cart#index'
   post '/add_to_cart/:product_id', to: 'shopping_cart#add_to_cart', as: 'add_to_cart'
   post '/remove_one_from_cart/:product_id', to: 'shopping_cart#remove_one_from_cart', as: 'remove_one_from_cart'

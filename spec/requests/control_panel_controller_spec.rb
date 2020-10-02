@@ -12,13 +12,13 @@ RSpec.describe Adms::ControlPanelController, type: :request do
   describe "POST /accept_provider" do
     it "renders a successful response" do
       post accept_provider_path(provider_id: provider.id)
-      expect(response).to redirect_to(adms_control_panel_path)
+      expect(response).to redirect_to(adms_control_panel_path(locale: I18n.default_locale))
     end
   end
   describe "POST /reject_provider" do
     it "renders a successful response" do
       post reject_provider_path(provider_id: provider.id)
-      expect(response).to redirect_to(adms_control_panel_path)
+      expect(response).to redirect_to(adms_control_panel_path(locale: I18n.default_locale))
     end
   end
 end

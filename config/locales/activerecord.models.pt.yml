@@ -1,0 +1,20 @@
+# encoding: UTF-8
+
+pt:
+  activerecord:
+    models:
+      adm:
+        one:   "Administrador"
+        other: "Administradores"
+      client:
+        one:   "Cliente"
+        other: "Clientes"
+      provider:
+        one:   "Provedor"
+        other: "Provedores"
+      product:
+        one:   "Produto"
+        other: "Produtos"
+      purchase:
+        one:   "Compra"
+        other: "Compras"

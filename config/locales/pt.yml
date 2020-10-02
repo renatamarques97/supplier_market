@@ -1,0 +1,127 @@
+# encoding: UTF-8
+
+pt:
+  layouts:
+    application:
+      home: "Página Inicial"
+      logged_as: "Logado como"
+      my_cart: "Carrinho (%{count})"
+      edit_profile: "Editar Perfil"
+      product:
+        new: "Novo Produto"
+        plural: "Produtos"
+      sign:
+        in:
+          admin: "Entrar Admin"
+          client: "Entrar Cliente"
+          provider: "Entrar Provedor"
+        out: "Sair"
+        up:
+          client: "Cadastrar Cliente"
+          provider: "Cadastrar Provedor"
+  home:
+    index:
+      title: "Página Inicial"
+      buy: "Comprar"
+  products:
+    index:
+      title: "Produtos"
+      dimensions: "Dimensões"
+      actions: "Ações"
+      show: "Detalhar"
+      edit: "Editar"
+      destroy: "Excluir"
+      sure?: "Você tem certeza?"
+      new: "Novo Produto"
+    new:
+      title: "Novo Produto"
+      back: "Voltar"
+    show:
+      dimensions: "Dimensões"
+      edit: "Editar"
+      back: "Voltar"
+    edit:
+      title: "Editando Produto"
+      show: "Detalhar"
+      back: "Voltar"
+    form:
+      create: "Criar Produto"
+      dont_create: "Produto não foi salvo"
+      error:
+        one: "1 erro"
+        other: "%{count} erros"
+  shopping_cart:
+    index:
+      title: "Carrinho de Compras"
+  adms:
+    sessions:
+      new:
+        title: "Entrar Administrador"
+        sign_in: "Entrar"
+    shared:
+        links:
+          sign:
+            in: "Entrar"
+            in_with: "Entrar com"
+            up: "Cadastrar"
+          forgot_password?: "Esqueceu sua senha?"
+          without_instructions:
+            confirmation?: "Não recebeu instruções de confirmação?"
+            unlock?: "Não recebeu instruções de desbloqueio?"
+  clients:
+    registrations:
+      new:
+        title: "Cadastrar Cliente"
+        sign_up: "Cadastrar"
+        characters_minimum: "caracteres mínimos"
+      edit:
+        title: "Editar Cliente"
+        leave_blank: "deixe em branco se não quiser alterá-lo"
+        characters_minimum: "caracteres mínimos"
+        need_pasword: "precisamos de sua senha atual para confirmar suas alterações"
+        update: "Atualizar"
+        cancel_account: "Cancelar Conta"
+        sure?: "Você tem certeza?"
+    sessions:
+      new:
+        title: "Entrar Cliente"
+        sign_in: "Entrar"
+    shared:
+        links:
+          sign:
+            in: "Entrar"
+            in_with: "Entrar com"
+            up: "Cadastrar"
+          forgot_password?: "Esqueceu sua senha?"
+          without_instructions:
+            confirmation?: "Não recebeu instruções de confirmação?"
+            unlock?: "Não recebeu instruções de desbloqueio?"
+  providers:
+    registrations:
+      new:
+        title: "Cadastrar Provedor"
+        sign_up: "Cadastrar"
+        characters_minimum: "caracteres mínimos"
+      edit:
+        title: "Editar Provedor"
+        leave_blank: "deixe em branco se não quiser alterá-lo"
+        characters_minimum: "caracteres mínimos"
+        need_pasword: "precisamos de sua senha atual para confirmar suas alterações"
+        update: "Atualizar"
+        cancel_account: "Cancelar Conta"
+        sure?: "Você tem certeza?"
+    sessions:
+      new:
+        title: "Entrar Provedor"
+        sign_in: "Entrar"
+    shared:
+        links:
+          sign:
+            in: "Entrar"
+            in_with: "Entrar com"
+            up: "Cadastrar"
+          forgot_password?: "Esqueceu sua senha?"
+          without_instructions:
+            confirmation?: "Não recebeu instruções de confirmação?"
+            unlock?: "Não recebeu instruções de desbloqueio?"
+  

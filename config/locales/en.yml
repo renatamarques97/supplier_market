@@ -1,33 +1,124 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      home: "Home Page"
+      logged_as: "Logged in as"
+      my_cart: "Cart (%{count})"
+      edit_profile: "Edit Profile"
+      product:
+        new: "New Product"
+        plural: "Products"
+      sign:
+        in:
+          admin: "Enter Admin"
+          client: "Enter Client"
+          provider: "Enter Provider"
+        out: "Logout"
+        up:
+          client: "Register Client"
+          provider: "Register Provider"
+  home:
+    index:
+      title: "Home Page"
+      buy: "Buy"
+  products:
+    index:
+      title: "Products"
+      dimensions: "Dimensions"
+      actions: "Actions"
+      show: "Detail"
+      edit: "Edit"
+      destroy: "Exclude"
+      sure?: "Are you sure?"
+      new: "New Product"
+    new:
+      title: "New Product"
+      back: "Back"
+    show:
+      dimensions: "Dimensions"
+      edit: "Edit"
+      back: "Back"
+    edit:
+      title: "Editing Product"
+      show: "Detail"
+      back: "Back"
+    form:
+      create: "Create Product"
+      dont_create: "Product was not saved"
+      error:
+        one: "1 error"
+        other: "%{count} errors"
+  shopping_cart:
+    index:
+      title: "Shopping Cart"
+  adms:
+    sessions:
+      new:
+        title: "Enter Administrator"
+        sign_in: "Enter"
+    shared:
+      links:
+        sign:
+          in: "Enter"
+          in_with: "Enter with"
+          up: "Register"
+        forgot_password?: "Forgot your password?"
+        without_instructions:
+          confirmation?: "Didn't receive confirmation instructions?"
+          unlock?: "Didn't receive any unlock instructions?"
+  clients:
+    registrations:
+      new:
+        title: "Register Client"
+        sign_up: "Sign Up"
+        characters_minimum: "minimum characters"
+      edit:
+        title: "Edit Client"
+        leave_blank: "leave it blank if you don't want to change it"
+        characters_minimum: "minimum characters"
+        need_pasword: "we need your current password to confirm your changes"
+        update: "Update"
+        cancel_account: "Cancel Account"
+        sure?: "Are you sure?"
+    sessions:
+      new:
+        title: "Enter Client"
+        sign_in: "Sign In"
+    shared:
+      links:
+        sign:
+          in: "Enter"
+          in_with: "Enter with"
+          up: "Sign Up"
+        forgot_password?: "Forgot your password?"
+        without_instructions:
+          confirmation?: "Didn't receive confirmation instructions?"
+          unlock?: "Didn't receive any unlock instructions?"
+  providers:
+    registrations:
+      new:
+        title: "Register Provider"
+        sign_up: "Sign Up"
+        characters_minimum: "minimum characters"
+      edit:
+        title: "Edit Provider"
+        leave_blank: "leave it blank if you don't want to change it"
+        characters_minimum: "minimum characters"
+        need_pasword: "we need your current password to confirm your changes"
+        update: "Update"
+        cancel_account: "Cancel Account"
+        sure?: "Are you sure?"
+    sessions:
+      new:
+        title: "Enter Provider"
+        sign_in: "Sign In"
+    shared:
+      links:
+        sign:
+          in: "Enter"
+          in_with: "Enter with"
+          up: "Sign Up"
+        forgot_password?: "Forgot your password?"
+        without_instructions:
+          confirmation?: "Didn't receive confirmation instructions?"
+          unlock?: "Didn't receive any unlock instructions?"

@@ -7,12 +7,12 @@ class Adms::ControlPanelController < ApplicationController
 
   def accept_provider
     @_provider.update(provider: true)
-    redirect_to "/adms/control_panel"
+    redirect_to adms_control_panel_path
   end
 
   def reject_provider
     @_provider.destroy
-    redirect_to "/adms/control_panel"
+    redirect_to adms_control_panel_path
   end
 
   private
