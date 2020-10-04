@@ -80,8 +80,9 @@ pt:
         characters_minimum: "caracteres mínimos"
         need_pasword: "precisamos de sua senha atual para confirmar suas alterações"
         update: "Atualizar"
-        cancel_account: "Cancelar Conta"
-        sure?: "Você tem certeza?"
+        cancel_account: "Excluir Conta"
+        ask_cancel: "Quero excluir minha conta"
+        sure?: "Ao excluir sua conta, torna-se impossível reativá-la depois. É, portanto, decisão definitiva. Você tem certeza?"
     sessions:
       new:
         title: "Entrar Cliente"
@@ -108,8 +109,9 @@ pt:
         characters_minimum: "caracteres mínimos"
         need_pasword: "precisamos de sua senha atual para confirmar suas alterações"
         update: "Atualizar"
-        cancel_account: "Cancelar Conta"
-        sure?: "Você tem certeza?"
+        cancel_account: "Excluir Conta"
+        ask_cancel: "Quero excluir minha conta"
+        sure?: "Ao excluir sua conta, torna-se impossível reativá-la depois. É, portanto, decisão definitiva. Você tem certeza?"
     sessions:
       new:
         title: "Entrar Provedor"

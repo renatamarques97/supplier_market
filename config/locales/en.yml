@@ -79,7 +79,8 @@ en:
         need_pasword: "we need your current password to confirm your changes"
         update: "Update"
         cancel_account: "Cancel Account"
-        sure?: "Are you sure?"
+        ask_cancel: "I want to delete my account"
+        sure?: "When you delete your account, it becomes impossible to reactivate it later. It is, therefore, a final decision. Are you sure?"
     sessions:
       new:
         title: "Enter Client"
@@ -107,7 +108,8 @@ en:
         need_pasword: "we need your current password to confirm your changes"
         update: "Update"
         cancel_account: "Cancel Account"
-        sure?: "Are you sure?"
+        ask_cancel: "I want to delete my account"
+        sure?: "When you delete your account, it becomes impossible to reactivate it later. It is, therefore, a final decision. Are you sure?"
     sessions:
       new:
         title: "Enter Provider"
