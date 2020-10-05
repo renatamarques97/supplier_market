@@ -37,6 +37,13 @@
 @import '~bootstrap/scss/_transitions.scss';
 @import '~bootstrap/scss/_utilities.scss';
 
+$timberwolf: #ced4c9;
+$maize-crayola: #e4bd5b;
+$maize-crayola-opacity: rgba(228, 189, 91, 0.3);
+$indian-yellow: #dca248;
+$pewter-blue: #92acb3;
+$indigo-dye: #2a415c;
+
 * {
   text-decoration: none;
 }
@@ -46,10 +53,34 @@ a, a:hover {
   text-decoration: none;
 }
 
+.btn-primary {
+  background-color: $pewter-blue;
+  border-color: darken($pewter-blue, 30%);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: darken($pewter-blue, 30%);
+}
+
+.btn-success {
+  background-color: $indigo-dye;
+  border-color: darken($indigo-dye, 30%);
+}
+.btn-success:hover, .btn-success:focus {
+  background-color: darken($indigo-dye, 30%);
+}
+
+.btn-warning {
+  background-color: $maize-crayola;
+  color: white;
+  border-color: darken($maize-crayola, 30%);
+}
+.btn-warning:hover, .btn-warning:focus {
+  background-color: darken($maize-crayola, 30%);
+}
+
 .black-text {
   color: black;
 }
-
 .black-text:hover {
   color: darkgray;
 }
@@ -60,35 +91,23 @@ a, a:hover {
 }
 
 .menu {
-  background-color: darkgray;
+  background-color: $indigo-dye;
   height: 60px;
   width: -webkit-fill-available;
 }
 
 .div-login-sign {
   border-radius: 25px;
-  background-color: #f2f8f9;
+  background-color: $timberwolf;
   padding: 20px;
   margin: 50px 400px;
 }
 
 .div-form {
   border-radius: 25px;
-  background-color: #f2f8f9;
+  background-color: $timberwolf;
   padding: 20px;
   margin: 50px 400px;
-}
-
-.bg-green {
-  background-color: #00a65a;
-}
-
-.bg-aqua {
-  background-color: #00c0ef;
-}
-
-.bg-crimson {
-  background-color: crimson;
 }
 
 .info-box-text {
@@ -97,11 +116,11 @@ a, a:hover {
 
 .field {
   width: 100%;
-  border-radius: 4px;
+  border-radius: 15px;
 }
 
 .field > input[type=text], select {
-  padding: 12px 20px;
+  padding: 3px 7px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
@@ -117,13 +136,25 @@ a, a:hover {
   cursor: pointer;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .div-form, .div-login-sign {
     margin: 50px 450px;
   }
 }
 
-@media (min-width: 869px) and (max-width: 1199px) {
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .div-form, .div-login-sign {
+    margin: 50px 400px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1199px) {
+  .div-form, .div-login-sign {
+    margin: 50px 300px;
+  }
+}
+
+@media (min-width: 869px) and (max-width: 999px) {
   .div-form, .div-login-sign {
     margin: 50px 250px;
   }
@@ -148,13 +179,11 @@ a, a:hover {
 }
 
 .products {
-  display: inline-grid; 
-  border-style: solid;
-  border-color: #9eecff;
+  display: inline-grid;
   width: 230px;
-  height: auto;
+  height: 350px;
   margin: 5px;
-  background-color: #e6faff;
+  padding: 20px;
   text-align: center;
 }
 
@@ -166,14 +195,14 @@ a, a:hover {
 }
 
 .title {
-  border-bottom: 1px solid #E1E8EE;
+  border-bottom: 1px solid $timberwolf;
   padding: 20px 30px;
 }
- 
+
 .item {
   padding: 20px 30px;
   display: flex;
-  border-top:  1px solid #E1E8EE;
+  border-top: 1px solid $timberwolf;
 }
 
 .buttons {
@@ -191,7 +220,7 @@ a, a:hover {
   margin-right: 60px;
   width: 115px;
 }
- 
+
 .description span {
   display: block;
   font-size: 14px;

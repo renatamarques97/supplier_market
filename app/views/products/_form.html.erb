@@ -11,47 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="div-form">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, placeholder: "Lorem ipsum" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, placeholder: "Lorem ipsum dolor sit amet consectetur..." %>
+    </div>
 
-   <div class="field">
-    <%= form.label :height %>
-    <%= form.number_field :height %>
-  </div>
+    <div class="field">
+      <%= form.label :height %>
+      <%= form.number_field :height, step: 0.1, placeholder: "32,5" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :width %>
-    <%= form.number_field :width %>
-  </div>
+    <div class="field">
+      <%= form.label :width %>
+      <%= form.number_field :width, step: 0.1, placeholder: "50,5" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :length %>
-    <%= form.number_field :length %>
-  </div>
+    <div class="field">
+      <%= form.label :length %>
+      <%= form.number_field :length, step: 0.1 , placeholder: "42,0"%>
+    </div>
 
-  <div class="field">
-    <%= form.label :weight %>
-    <%= form.number_field :weight %>
-  </div>
+    <div class="field">
+      <%= form.label :weight %>
+      <%= form.number_field :weight, step: 0.1, placeholder: "70,0" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price, step: 0.1, placeholder: "64,9" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
-  </div>
+    <div class="field">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit t('.create'), class: 'btn btn-success' %>
+    <div class="actions">
+      <%= form.submit t('.create'), class: 'btn btn-success' %>
+    </div>
   </div>
 <% end %>
