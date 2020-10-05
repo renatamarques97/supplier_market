@@ -39,7 +39,6 @@
 
 $timberwolf: #ced4c9;
 $maize-crayola: #e4bd5b;
-$maize-crayola-opacity: rgba(228, 189, 91, 0.3);
 $indian-yellow: #dca248;
 $pewter-blue: #92acb3;
 $indigo-dye: #2a415c;
@@ -57,16 +56,18 @@ a, a:hover {
   background-color: $pewter-blue;
   border-color: darken($pewter-blue, 30%);
 }
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:focus, .btn-primary:hover, .btn-primary:active {
   background-color: darken($pewter-blue, 30%);
+  border-color: darken($pewter-blue, 30%);
 }
 
 .btn-success {
   background-color: $indigo-dye;
   border-color: darken($indigo-dye, 30%);
 }
-.btn-success:hover, .btn-success:focus {
+.btn-success:focus, .btn-success:hover, .btn-success:active {
   background-color: darken($indigo-dye, 30%);
+  border-color: darken($indigo-dye, 30%);
 }
 
 .btn-warning {
@@ -74,8 +75,9 @@ a, a:hover {
   color: white;
   border-color: darken($maize-crayola, 30%);
 }
-.btn-warning:hover, .btn-warning:focus {
+.btn-warning:focus, .btn-warning:hover, .btn-primary:active {
   background-color: darken($maize-crayola, 30%);
+  border-color: darken($maize-crayola, 30%);
 }
 
 .black-text {
