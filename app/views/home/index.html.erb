@@ -8,9 +8,11 @@
           <td> <%= image_tag "box.svg", width: "180px" %> </td>
           <td> <%= product.name.titleize %> </td>
           <td> R$ <%= product.price.round(2) %> </td>
-          <td> <%= button_to add_to_cart_path(product_id: product.id), class: "btn btn-success", method: :post, remote: true do %>
-            <%= t('.buy') %> <%= image_tag "shopping-cart-2.png", width: "27px" %>
-          <% end %> </td>
+          <td>
+            <%= button_to add_to_cart_path(product_id: product.id), class: "btn btn-success", method: :post, remote: true do %>
+              <%= t('.buy') %> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
