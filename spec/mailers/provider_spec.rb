@@ -2,16 +2,17 @@ require "rails_helper"
 
 RSpec.describe ProviderMailer, type: :mailer do
   describe "waiting_administrator_confirmation" do
-    let(:mail) { ProviderMailer.waiting_administrator_confirmation }
+    let!(:provider) { create(:provider) }
+    let!(:mail)     { ProviderMailer.with(provider: provider).waiting_administrator_confirmation }
 
     it "renders the headers" do
-      expect(mail.subject).to eq("Waiting administrator confirmation")
-      expect(mail.to).to eq(["to@example.org"])
-      expect(mail.from).to eq(["from@example.com"])
+      expect(mail.subject).to eq("Mercado Fornecedor - Castro Realizado")
+      expect(mail.to).to eq([provider.email])
+      expect(mail.from).to eq(["mercado.fornecedor@hotmail.com"])
     end
 
     it "renders the body" do
-      expect(mail.body.encoded).to match("Hi")
+      expect(mail.body.encoded).to match("Cadastro Realizado - Mercado Fornecedor")
     end
   end
 
