@@ -1,0 +1,9 @@
+en:
+  provider_mailer:
+   waiting_administrator_confirmation:
+      subject: "Supplier Market - Registration Successful"
+      sign_up_successful: "Successfully Registered in the Supplier Market"
+      waiting_confirm_admin: "Waiting for Confirmation from the Administrator"
+      thanks_and_waiting_html: "Thank you <b>%{name}</b> for registering, your account will be analyzed and confirmed before you can login"
+      thanks_and_waiting_text: "Thank you %{name} for registering, your account will be analyzed and confirmed before you can login"
+

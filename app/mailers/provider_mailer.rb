@@ -3,6 +3,6 @@ class ProviderMailer < ApplicationMailer
 
   def waiting_administrator_confirmation
     @provider = params[:provider]
-    mail to: @provider.email, subject: "Mercado Fornecedor - Castro Realizado"
+    mail to: @provider.email, subject: t('.subject')
   end
 end

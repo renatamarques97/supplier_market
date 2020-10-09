@@ -1,5 +1,4 @@
-Cadastro Realizado - Mercado Fornecedor
-Esperando Confirmação do Administrador 
+<%= t('.sign_up_successful') %>
+<%= t('.waiting_confirm_admin') %>
 
-               
-Obrigado <b><%= @provider.name.titleize %></b>e por se cadastrar, sua conta está será analisada antes que você possa realizar o login.
+<%= t('.thanks_and_waiting_text', { name: @provider.name.titleize }) %>

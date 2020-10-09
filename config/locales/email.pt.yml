@@ -1,0 +1,11 @@
+# encoding: UTF-8
+
+pt:
+  provider_mailer:
+    waiting_administrator_confirmation:
+      subject: "Mercado Fornecedor - Cadastro Realizado"
+      sign_up_successful: "Cadastro Realizado no Mercado Fornecedor"
+      waiting_confirm_admin: "Esperando Confirmação do Administrador"
+      thanks_and_waiting_html: "Obrigado <b>%{name}</b> por se cadastrar, sua conta está será analisada e confirmada antes que você possa realizar o login"
+      thanks_and_waiting_text: "Obrigado %{name} por se cadastrar, sua conta está será analisada e confirmada antes que você possa realizar o login"
+
