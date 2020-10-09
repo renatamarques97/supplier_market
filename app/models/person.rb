@@ -10,4 +10,14 @@ class Person < ApplicationRecord
   validates :telephone, presence: true
   validates :cnpj,      presence: true
   validates_uniqueness_of :email
+
+  def active_for_authentication?
+    super && active?
+  end
+
+  private
+
+  def active?
+    client || provider || admin
+  end
 end
