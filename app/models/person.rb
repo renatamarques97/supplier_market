@@ -10,4 +10,6 @@ class Person < ApplicationRecord
   validates :telephone, presence: true
   validates :cnpj,      presence: true
   validates_uniqueness_of :email
+
+  has_many :address
 end
