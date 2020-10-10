@@ -7,5 +7,4 @@ class ProviderPreview < ActionMailer::Preview
     provider = Provider.new(name: "Example", email: "example@email.com") unless provider
     ProviderMailer.with(provider: provider).waiting_administrator_confirmation
   end
-
 end
