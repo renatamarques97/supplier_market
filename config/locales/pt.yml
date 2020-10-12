@@ -1,8 +1,11 @@
 # encoding: UTF-8
 
 pt:
-  layouts:
-    application:
+  home:
+    index:
+      title: "Página Inicial"
+      buy: "Comprar"
+    menu:
       home: "Página Inicial"
       logged_as: "Logado como"
       my_cart: "Carrinho (%{count})"
@@ -19,10 +22,7 @@ pt:
         up:
           client: "Cadastrar Cliente"
           provider: "Cadastrar Provedor"
-  home:
-    index:
-      title: "Página Inicial"
-      buy: "Comprar"
+
   products:
     index:
       title: "Produtos"

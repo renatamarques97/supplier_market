@@ -1,6 +1,9 @@
 en:
-  layouts:
-    application:
+  home:
+    index:
+      title: "Home Page"
+      buy: "Buy"
+    menu:
       home: "Home Page"
       logged_as: "Logged in as"
       my_cart: "Cart (%{count})"
@@ -17,10 +20,7 @@ en:
         up:
           client: "Register Client"
           provider: "Register Provider"
-  home:
-    index:
-      title: "Home Page"
-      buy: "Buy"
+
   products:
     index:
       title: "Products"
