@@ -1,51 +1,66 @@
-<p class="navbar-text menu">
+<nav class="navbar-text menu">
   <%= image_tag("supplier-market.jpeg", size: "60x50", alt: "Supplier market") %>
 
-  <% if client_signed_in? %>
-    <%= t('.logged_as')  %> <strong><%= current_client.email %></strong>. |
+  <ul class="menu-list">
+    <% if client_signed_in? %>
+      <li class="user"> <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        <ul>
+          <li> <%= t('.logged_as')  %> <strong><%= current_client.email %></strong>. </li>
 
-    <%= t('.logged_as', { email: current_client.email }) %> |
-    <%= link_to t('.my_cart', { count: session[:shopping_cart].try(:map) { |product| product["quantity"] }.try(:sum) }), shopping_cart_path, class: 'navbar-link'%> |
+          <li>
+            <%= t('.logged_as', { email: current_client.email }) %>
+            <%= link_to t('.my_cart', { count: session[:shopping_cart].try(:map) { |product| product["quantity"] }.try(:sum) }), shopping_cart_path, class: 'navbar-link'%> |
+          </li>
 
-    <%= link_to t('.edit_profile'), edit_client_registration_path, class: 'navbar-link' %> |
+          <li> <%= link_to t('.edit_profile'), edit_client_registration_path, class: 'navbar-link' %> | </li>
 
-    <button class="btn btn-primary">
-      <i class="fa fa-sign-out" aria-hidden="true"></i>
-      <%= link_to t('.sign.out'),     destroy_client_session_path,   class: 'navbar-link', method: :delete %>
-    </button>
-  <% elsif provider_signed_in? %>
-    <%= t('.logged_as')  %> <strong><%= current_provider.email %></strong>. |
+          <li>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <%= link_to t('.sign.out'), destroy_client_session_path, class: 'navbar-link', method: :delete %>
+          </li>
+        </ul>
+      </li>
+    <% elsif provider_signed_in? %>
+      <li class="user"> <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        <ul>
+          <li> <%= t('.logged_as') %> <strong><%= current_provider.name.titleize %></strong> </li>
 
-    <button class="btn btn-primary">
-      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-      <%= link_to t('.my_cart', { count: session[:shopping_cart].try(:map) { |product| product["quantity"] }.try(:sum) }), shopping_cart_path, class: 'navbar-link'%>
-    </button> |
+          <li>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <%= link_to t('.my_cart', { count: session[:shopping_cart].try(:map) { |product| product["quantity"] }.try(:sum) }), shopping_cart_path, class: 'navbar-link'%>
+          </li>
 
-    <%= link_to t('.product.new'),    new_product_path,                class: 'navbar-link' %> |
-    <%= link_to t('.product.plural'), products_path,                   class: 'navbar-link' %> |
-    <%= link_to t('.edit_profile'),   edit_provider_registration_path, class: 'navbar-link' %> |
+          <li> <%= link_to t('.product.new'),    new_product_path,                class: 'navbar-link' %> </li>
+          <li> <%= link_to t('.product.plural'), products_path,                   class: 'navbar-link' %> </li>
+          <li> <%= link_to t('.edit_profile'),   edit_provider_registration_path, class: 'navbar-link' %> </li>
 
-    <button class="btn btn-primary">
-      <i class="fa fa-sign-out" aria-hidden="true"></i>
-      <%= link_to t('.sign.out'), destroy_provider_session_path, class: 'navbar-link', method: :delete %>
-    </button>
-  <% elsif adm_signed_in? %>
-    <%= t('.logged_as')  %> <strong><%= current_adm.email %></strong>. |
-    <%= link_to t('.product.new'),    new_product_path,           class: 'navbar-link' %> |
-    <%= link_to t('.product.plural'), products_path,              class: 'navbar-link' %> |
-    <%= link_to t('.edit_profile'),   edit_adm_registration_path, class: 'navbar-link' %> |
+          <li>
+            <p>
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              <%= link_to t('.sign.out'), destroy_provider_session_path,      class: 'navbar-link', method: :delete %>
+            </p>
+          </li>
+        </ul>
+      </li>
+    <% elsif adm_signed_in? %>
+      <li class="user"> <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        <ul>
+          <li> <%= t('.logged_as')  %> <strong><%= current_adm.email %></strong>. </li>
+          <li> <%= link_to t('.product.new'),    new_product_path,            class: 'navbar-link' %> </li>
+          <li> <%= link_to t('.product.plural'), products_path,               class: 'navbar-link' %> </li>
+          <li> <%= link_to t('.edit_profile'),   edit_adm_registration_path,  class: 'navbar-link' %> </li>
 
-    <button class="btn btn-primary">
-      <i class="fa fa-sign-out" aria-hidden="true"></i>
-      <%= link_to t('.sign.out'),       destroy_adm_session_path,   class: 'navbar-link', method: :delete %>
-    </button>
-  <% else %>
-    <%= link_to t('.sign.up.client'),   new_client_registration_path,   class: 'navbar-link'  %> |
-    <%= link_to t('.sign.in.client'),   new_client_session_path,        class: 'navbar-link'  %> |
-    <%= link_to t('.sign.up.provider'), new_provider_registration_path, class: 'navbar-link'  %> |
-    <%= link_to t('.sign.in.provider'), new_provider_session_path,      class: 'navbar-link'  %> |
-    <%= link_to t('.sign.in.admin'),    new_adm_session_path,           class: 'navbar-link'  %>
-  <% end %>
+          <li>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <%= link_to t('.sign.out'),       destroy_adm_session_path,     class: 'navbar-link', method: :delete %>
+          </li>
+        <% else %>
+          <li> <%= link_to t('.sign.in.client'),   new_client_session_path,   class: 'navbar-link'  %> </li>
+          <li> <%= link_to t('.sign.in.provider'), new_provider_session_path, class: 'navbar-link'  %> </li>
+        <% end %>
+        </ul>
+      </li>
+  </ul>
 
   <% if I18n.locale == :en %>
     <%= link_to set_locale_path(locale: :pt), class: "locale-button" do %>
@@ -56,4 +71,4 @@
       <%= image_tag "br-flag.svg" %>
     <% end %>
   <% end %>
-</p>
+</nav>

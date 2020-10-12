@@ -52,6 +52,58 @@ a, a:hover {
   text-decoration: none;
 }
 
+.menu-list {
+  list-style: none;
+  float: left;
+}
+
+.menu-list li {
+  position: relative;
+  float: left;
+}
+
+.menu-list li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  display: block;
+}
+
+.menu-list li a:hover {
+  color: #fff;
+  -moz-box-shadow: 0 3px 10px 0 #CCC;
+}
+
+.menu-list li ul {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  background-color: #fff;
+  display: none;
+}
+
+.menu li ul li {
+  display: block;
+}
+
+.menu-list li:hover ul, .menu-list li.over ul {
+  display: block;
+  background-color: $pewter-blue;
+  text-decoration: none;
+  width: 190px;
+}
+
+.user {
+  color: white;
+  text-decoration: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.fa-user-circle-o {
+  font-size: 35px;
+}
+
 .btn-primary {
   background-color: $pewter-blue;
   border-color: darken($pewter-blue, 30%);
