@@ -33,7 +33,7 @@ RSpec.describe Person, type: :model do
       end
     end
 
-    context "same for the others, the return must be false" do
+    context "when the person is disabled, the return must be false" do
       it "disabled client" do
         expect(client_not_actived.active_for_authentication?).to be_falsey
       end
