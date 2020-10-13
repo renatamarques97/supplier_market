@@ -19,30 +19,30 @@ RSpec.describe Person, type: :model do
     let(:provider_not_actived) { create(:provider, :not_actived) }
     let(:adm_not_actived)      { create(:adm, :not_actived)      }
 
-    context "return must be true" do
-      it "client" do
+    context "when the person is activated, the return must be true" do
+      it "activated client" do
         expect(client.active_for_authentication?).to be_truthy
       end
 
-      it "provider" do
+      it "activated provider" do
         expect(provider.active_for_authentication?).to be_truthy
       end
 
-      it "admin" do
+      it "activated admin" do
         expect(adm.active_for_authentication?).to be_truthy
       end
     end
 
-    context "return must be false" do
-      it "client" do
+    context "same for the others, the return must be false" do
+      it "disabled client" do
         expect(client_not_actived.active_for_authentication?).to be_falsey
       end
 
-      it "provider" do
+      it "disabled provider" do
         expect(provider_not_actived.active_for_authentication?).to be_falsey
       end
 
-      it "admin" do
+      it "disabled admin" do
         expect(adm_not_actived.active_for_authentication?).to be_falsey
       end
     end
