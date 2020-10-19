@@ -52,9 +52,17 @@ a, a:hover {
   text-decoration: none;
 }
 
+.alert {
+  z-index: -1;
+}
+
+.navbar-text {
+  display: inline-flex;
+}
 .menu-list {
   list-style: none;
-  float: left;
+  right: 75px;
+  position: fixed;
 }
 
 .menu-list li {
@@ -75,10 +83,11 @@ a, a:hover {
 }
 
 .menu-list li ul {
-  position: absolute;
-  top: 25px;
-  left: 0;
-  background-color: #fff;
+  position: fixed;
+  top: 55px;
+  border-radius: 5px;
+  z-index: 1;
+  right: 1px;
   display: none;
 }
 
@@ -331,7 +340,8 @@ a, a:hover {
 }
 
 .locale-button {
-  float: right;
+  right: 0;
+  position: fixed;
 }
 
 .locale-button > img {
