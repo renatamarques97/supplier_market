@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_212242) do
+ActiveRecord::Schema.define(version: 2020_10_07_150728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street", null: false
+    t.string "number", null: false
+    t.string "complement"
+    t.string "reference_point"
+    t.string "zip_code", null: false
+    t.bigint "city_id", null: false
+    t.string "person_type", null: false
+    t.bigint "person_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_id"], name: "index_addresses_on_city_id"
+    t.index ["person_type", "person_id"], name: "index_addresses_on_person_type_and_person_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "state_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
 
   create_table "people", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -71,6 +94,15 @@ ActiveRecord::Schema.define(version: 2020_09_06_212242) do
     t.index ["person_type", "person_id"], name: "index_purchases_on_person_type_and_person_id"
   end
 
+  create_table "states", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "acronym", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "addresses", "cities"
+  add_foreign_key "cities", "states"
   add_foreign_key "purchase_products", "products"
   add_foreign_key "purchase_products", "purchases"
 end
