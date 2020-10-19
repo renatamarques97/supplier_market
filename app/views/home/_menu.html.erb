@@ -1,11 +1,13 @@
 <nav class="navbar-text menu">
-  <%= image_tag("supplier-market.jpeg", size: "60x50", alt: "Supplier market") %>
+  <%= link_to root_path do %>
+    <%= image_tag("supplier-market.jpeg", size: "60x50", alt: "Supplier market") %>
+  <% end %>
 
   <ul class="menu-list">
     <% if client_signed_in? %>
       <li class="user"> <i class="fa fa-user-circle-o" aria-hidden="true"></i>
         <ul>
-          <li> <%= t('.logged_as')  %> <strong><%= current_client.email %></strong>. </li>
+          <li> <%= t('.logged_as')  %> <strong><%= current_client.name.titleize %></strong> </li>
 
           <li>
             <%= t('.logged_as', { email: current_client.email }) %>
@@ -37,7 +39,7 @@
           <li>
             <p>
               <i class="fa fa-sign-out" aria-hidden="true"></i>
-              <%= link_to t('.sign.out'), destroy_provider_session_path,      class: 'navbar-link', method: :delete %>
+              <%= link_to t('.sign.out'), destroy_provider_session_path, class: 'navbar-link', method: :delete %>
             </p>
           </li>
         </ul>
@@ -45,14 +47,14 @@
     <% elsif adm_signed_in? %>
       <li class="user"> <i class="fa fa-user-circle-o" aria-hidden="true"></i>
         <ul>
-          <li> <%= t('.logged_as')  %> <strong><%= current_adm.email %></strong>. </li>
+          <li> <%= t('.logged_as')  %> <strong><%= current_adm.name.titleize %></strong> </li>
           <li> <%= link_to t('.product.new'),    new_product_path,            class: 'navbar-link' %> </li>
           <li> <%= link_to t('.product.plural'), products_path,               class: 'navbar-link' %> </li>
           <li> <%= link_to t('.edit_profile'),   edit_adm_registration_path,  class: 'navbar-link' %> </li>
 
           <li>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
-            <%= link_to t('.sign.out'),       destroy_adm_session_path,     class: 'navbar-link', method: :delete %>
+            <%= link_to t('.sign.out'), destroy_adm_session_path, class: 'navbar-link', method: :delete %>
           </li>
         <% else %>
           <li> <%= link_to t('.sign.in.client'),   new_client_session_path,   class: 'navbar-link'  %> </li>
