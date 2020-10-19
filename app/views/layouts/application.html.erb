@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Suplier Market</title>
+    <title>Supplier Market</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,51 +11,7 @@
   </head>
 
   <body>
-    <p class="navbar-text menu">
-      <%= link_to t('.home'),  root_path, class: 'navbar-link' %> |
-
-      <% if client_signed_in? %>
-        <%= t('.logged_as')  %> <strong><%= current_client.email %></strong>. |
-
-        <%= t('.logged_as', { email: current_client.email }) %> |
-        <%= link_to t('.my_cart', { count: session[:shopping_cart].try(:map) { |product| product["quantity"] }.try(:sum) }), shopping_cart_path, class: 'navbar-link'%> |
-
-        <%= link_to t('.edit_profile'), edit_client_registration_path, class: 'navbar-link' %> |
-        <%= link_to t('.sign.out'),     destroy_client_session_path,   class: 'navbar-link', method: :delete %>
-      <% elsif provider_signed_in? %>
-        <%= t('.logged_as')  %> <strong><%= current_provider.email %></strong>. |
-
-        <%= link_to t('.my_cart', { count: session[:shopping_cart].try(:map) { |product| product["quantity"] }.try(:sum) }), shopping_cart_path, class: 'navbar-link'%> |
-
-        <%= link_to t('.product.new'),    new_product_path,                class: 'navbar-link' %> |
-        <%= link_to t('.product.plural'), products_path,                   class: 'navbar-link' %> |
-        <%= link_to t('.edit_profile'),   edit_provider_registration_path, class: 'navbar-link' %> |
-        <%= link_to t('.sign.out'),       destroy_provider_session_path,   class: 'navbar-link', method: :delete %>
-      <% elsif adm_signed_in? %>
-        <%= t('.logged_as')  %> <strong><%= current_adm.email %></strong>. |
-
-        <%= link_to t('.product.new'),    new_product_path,           class: 'navbar-link' %> |
-        <%= link_to t('.product.plural'), products_path,              class: 'navbar-link' %> |
-        <%= link_to t('.edit_profile'),   edit_adm_registration_path, class: 'navbar-link' %> |
-        <%= link_to t('.sign.out'),       destroy_adm_session_path,   class: 'navbar-link', method: :delete %>
-      <% else %>
-        <%= link_to t('.sign.up.client'),   new_client_registration_path,   class: 'navbar-link'  %> |
-        <%= link_to t('.sign.in.client'),   new_client_session_path,        class: 'navbar-link'  %> |
-        <%= link_to t('.sign.up.provider'), new_provider_registration_path, class: 'navbar-link'  %> |
-        <%= link_to t('.sign.in.provider'), new_provider_session_path,      class: 'navbar-link'  %> |
-        <%= link_to t('.sign.in.admin'),    new_adm_session_path,           class: 'navbar-link'  %>
-      <% end %>
-
-      <% if I18n.locale == :en %>
-        <%= link_to set_locale_path(locale: :pt), class: "locale-button" do %>
-          <%= image_tag "gb-flag.svg" %>
-        <% end %>
-      <% else %>
-        <%= link_to set_locale_path(locale: :en), class: "locale-button" do %>
-          <%= image_tag "br-flag.svg" %>
-        <% end %>
-      <% end %>
-    </p>
+    <%= render 'home/menu' %>
 
     <% flash.each do |type, msg| %>
       <div class="alert alert-info">

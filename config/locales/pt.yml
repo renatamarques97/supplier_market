@@ -1,8 +1,11 @@
 # encoding: UTF-8
 
 pt:
-  layouts:
-    application:
+  home:
+    index:
+      title: "Página Inicial"
+      buy: "Comprar"
+    menu:
       home: "Página Inicial"
       logged_as: "Logado como"
       my_cart: "Carrinho (%{count})"
@@ -12,17 +15,13 @@ pt:
         plural: "Produtos"
       sign:
         in:
-          admin: "Entrar Admin"
-          client: "Entrar Cliente"
-          provider: "Entrar Provedor"
+          admin: "Entrar como Admin"
+          client: "Entrar como Cliente"
+          provider: "Entrar como Fornecedor"
         out: "Sair"
         up:
           client: "Cadastrar Cliente"
-          provider: "Cadastrar Provedor"
-  home:
-    index:
-      title: "Página Inicial"
-      buy: "Comprar"
+          provider: "Cadastrar Fornecedor"
   products:
     index:
       title: "Produtos"
@@ -100,11 +99,11 @@ pt:
   providers:
     registrations:
       new:
-        title: "Cadastrar Provedor"
+        title: "Cadastrar Fornecedor"
         sign_up: "Cadastrar"
         characters_minimum: "caracteres mínimos"
       edit:
-        title: "Editar Provedor"
+        title: "Editar Fornecedor"
         leave_blank: "deixe em branco se não quiser alterá-lo"
         characters_minimum: "caracteres mínimos"
         need_pasword: "precisamos de sua senha atual para confirmar suas alterações"
@@ -126,4 +125,3 @@ pt:
           without_instructions:
             confirmation?: "Não recebeu instruções de confirmação?"
             unlock?: "Não recebeu instruções de desbloqueio?"
-  
